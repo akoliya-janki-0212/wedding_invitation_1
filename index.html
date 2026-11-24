@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Mayank & Shreya | Wedding Celebration</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💍</text></svg>">
+
+  <!-- Google Fonts: Royal Indian Wedding Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==============================================
+       STAGE 1: VIDEO INTRO (ONLY TAP TO BEGIN, NO BOX, NO BOTTOM LINE)
+       ============================================== -->
+  <section id="video-stage" class="video-stage" aria-label="Wedding Video Intro">
+    <!-- Clean Fullscreen Video -->
+    <div class="video-wrapper">
+      <video id="hero-video" playsinline preload="auto" muted>
+        <source src="hiro_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Center "OPEN THE DOORS" Royal Button (Exact match to requested design) -->
+    <div id="tap-overlay" class="tap-overlay" role="button" tabindex="0" aria-label="Open the doors">
+      <button id="tap-btn" class="open-doors-btn" type="button">
+        <!-- SVG Definitions for Metallic Gold Gradients -->
+        <svg class="svg-defs-hidden" width="0" height="0" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="royalGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fff0aa" />
+              <stop offset="25%" stop-color="#e8c252" />
+              <stop offset="50%" stop-color="#c99723" />
+              <stop offset="75%" stop-color="#f5d97e" />
+              <stop offset="100%" stop-color="#a67812" />
+            </linearGradient>
+            <linearGradient id="goldLeafGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#dfb13f" />
+              <stop offset="50%" stop-color="#ffea9f" />
+              <stop offset="100%" stop-color="#b6841b" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <div class="doors-btn-container">
+          <!-- Left Laurel Flourish & Accent Line -->
+          <svg class="wing-flourish wing-left" viewBox="0 0 70 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="2" y1="22" x2="38" y2="22" stroke="url(#royalGoldGrad)" stroke-width="1.8" />
+            <!-- Star / Diamond Flourish -->
+            <polygon points="36,22 40,17 44,22 40,27" fill="url(#royalGoldGrad)" />
+            <!-- Laurel Leaves Cluster -->
+            <path d="M43 22 Q49 11 58 13 Q54 20 43 22 Z" fill="url(#goldLeafGrad)" />
+            <path d="M43 22 Q54 6 66 10 Q59 19 43 22 Z" fill="url(#goldLeafGrad)" />
+            <path d="M43 22 Q49 33 58 31 Q54 24 43 22 Z" fill="url(#goldLeafGrad)" />
+            <path d="M43 22 Q54 38 66 34 Q59 25 43 22 Z" fill="url(#goldLeafGrad)" />
+            <path d="M43 22 Q56 22 68 22 Q58 24 43 22 Z" fill="url(#goldLeafGrad)" />
+          </svg>
+
+          <!-- Central Maroon Plaque -->
+          <div class="doors-plaque">
+            <div class="plaque-inner-pinstripe">
+              <span class="doors-label">OPEN THE DOORS</span>
+              <span class="doors-star">✦</span>
+            </div>
+
+            <!-- Bottom Center Lotus Emblem & Flourishes -->
+            <div class="plaque-lotus-wrap">
+              <span class="flourish-line left"></span>
+              <svg class="lotus-svg" viewBox="0 0 32 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Center Lotus Petal -->
+                <path d="M16 2 C18 6, 19 12, 16 16 C13 12, 14 6, 16 2 Z" fill="url(#royalGoldGrad)" />
+                <!-- Inner Left Petal -->
+                <path d="M16 16 C12 12, 8 10, 9 5 C12 7, 15 11, 16 16 Z" fill="url(#goldLeafGrad)" />
+                <!-- Outer Left Petal -->
+                <path d="M16 16 C9 14, 2 13, 3 8 C7 10, 13 13, 16 16 Z" fill="url(#goldLeafGrad)" />
+                <!-- Inner Right Petal -->
+                <path d="M16 16 C20 12, 24 10, 23 5 C20 7, 17 11, 16 16 Z" fill="url(#goldLeafGrad)" />
+                <!-- Outer Right Petal -->
+                <path d="M16 16 C23 14, 30 13, 29 8 C25 10, 19 13, 16 16 Z" fill="url(#goldLeafGrad)" />
+              </svg>
+              <span class="flourish-line right"></span>
+            </div>
+          </div>
+
+          <!-- Right Laurel Flourish & Accent Line -->
+          <svg class="wing-flourish wing-right" viewBox="0 0 70 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="32" y1="22" x2="68" y2="22" stroke="url(#royalGoldGrad)" stroke-width="1.8" />
+            <!-- Star / Diamond Flourish -->
+            <polygon points="26,22 30,17 34,22 30,27" fill="url(#royalGoldGrad)" />
+            <!-- Laurel Leaves Cluster -->
+            <path d="M27 22 Q21 11 12 13 Q16 20 27 22 Z" fill="url(#goldLeafGrad)" />
+            <path d="M27 22 Q16 6 4 10 Q11 19 27 22 Z" fill="url(#goldLeafGrad)" />
+            <path d="M27 22 Q21 33 12 31 Q16 24 27 22 Z" fill="url(#goldLeafGrad)" />
+            <path d="M27 22 Q16 38 4 34 Q11 25 27 22 Z" fill="url(#goldLeafGrad)" />
+            <path d="M27 22 Q14 22 2 22 Q12 24 27 22 Z" fill="url(#goldLeafGrad)" />
+          </svg>
+        </div>
+      </button>
+    </div>
+
+    <!-- Minimal Subtle Skip Button (Top Right) -->
+    <button id="top-skip-btn" class="top-skip-btn" title="Skip to Invitation Card">
+      Skip ➔
+    </button>
+  </section>
+
+  <!-- ==============================================
+       STAGE 2: CINEMATIC WHITE FLASH TRANSITION
+       ============================================== -->
+  <div id="white-flash-veil" class="white-flash-veil" aria-hidden="true"></div>
+
+  <!-- ==============================================
+       STAGE 3: WEDDING INVITATION WEBSITE
+       ============================================== -->
+  <main id="invitation-stage" class="invitation-stage hidden">
+    <!-- Floating Pink Heart Petals Canvas Layer -->
+    <canvas id="petals-canvas" class="petals-canvas" aria-hidden="true"></canvas>
+
+    <!-- ==============================================
+         HERO SECTION: THE WEDDING ANNOUNCEMENT CARD
+         (EXACT MATCH TO THE USER'S PROVIDED SCREENSHOT)
+         ============================================== -->
+    <section class="wedding-card-section" id="wedding-card">
+      <div class="wedding-card-container">
+        <!-- Left Floral Garland Border -->
+        <div class="garland-border garland-left" aria-hidden="true">
+          <img src="garland_left_raw.png" alt="" class="garland-img" />
+        </div>
+
+        <!-- Center Card Content -->
+        <div class="card-center-content">
+          <!-- Announcement Top Line -->
+          <p class="announcement-top">WE ARE THRILLED TO ANNOUNCE THAT</p>
+
+          <!-- Groom Name & Parents -->
+          <div class="couple-name-block">
+            <h1 class="groom-name">Mayank</h1>
+            <p class="parents-subtext">(S/o Vishesh &amp; Radhika Agrawal)</p>
+          </div>
+
+          <!-- Ampersand -->
+          <div class="ampersand-block">
+            <span class="ampersand">&amp;</span>
+          </div>
+
+          <!-- Bride Name & Parents -->
+          <div class="couple-name-block">
+            <h1 class="bride-name">Shreya</h1>
+            <p class="parents-subtext">(D/o Rajiv &amp; Sanya Malhotra)</p>
+          </div>
+
+          <!-- Wedding Date & Call to Action -->
+          <div class="knot-date-block">
+            <p class="knot-text">
+              Are tying the knot on <span class="highlight-date">25th January 2027</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Floral Garland Border -->
+        <div class="garland-border garland-right" aria-hidden="true">
+          <img src="garland_right_raw.png" alt="" class="garland-img" />
+        </div>
+
+        <!-- Subtle Floating Scroll Indicator at bottom of full screen -->
+        <a href="#save-the-date-section" class="scroll-down-hint" aria-label="Scroll to Save The Date">
+          <span class="scroll-label">Explore Celebration</span>
+          <span class="scroll-icon">⇣</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         STAGE 4: SAVE THE DATE PHOTO & SCRATCH CARD SECTION
+         (BACKGROUND: marriege.png, INTERACTIVE GOLDEN SCRATCH CARD)
+         ============================================== -->
+    <section class="save-the-date-section" id="save-the-date-section">
+      <div class="scratch-section-overlay"></div>
+
+      <div class="scratch-content-wrapper">
+        <p class="scratch-sub-title">SAVE THE DATE</p>
+        <h2 class="scratch-couple-title">Mayank &amp; Shreya</h2>
+
+        <!-- Interactive Golden Scratch Card -->
+        <div class="scratch-card-container" id="scratch-card-box">
+          <!-- Hidden Revealed Layer Underneath -->
+          <div class="scratch-revealed-layer" id="scratch-revealed">
+            <div class="revealed-inner">
+              <span class="revealed-motif">❦</span>
+              <p class="revealed-date">25th January 2027</p>
+              <span class="revealed-sub">Save Our Date For A Lifetime</span>
+            </div>
+          </div>
+
+          <!-- Top Golden Scratch Canvas -->
+          <canvas id="scratch-canvas" class="scratch-canvas"></canvas>
+
+          <!-- Animated Scratch Hand Gesture Hint (Swipe Left-Right) -->
+          <div class="scratch-hand-indicator" id="scratch-hand-indicator" aria-hidden="true">
+            <img src="scratch_hand_exact_2x.png" alt="Scratch Gesture Hand" class="scratch-hand-img">
+          </div>
+        </div>
+
+        <p class="scratch-instruction-text" id="scratch-instruction">SCRATCH THE GOLDEN CARD</p>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         COUNTDOWN TIMER SECTION
+         ============================================== -->
+    <section class="countdown-section" id="countdown-section">
+      <div class="section-title-wrap">
+        <span class="sub-flourish">~ Counting Down To The Big Day ~</span>
+        <h2 class="section-title">The Royal Wedding Awaits</h2>
+        <div class="golden-divider"><span>❦</span></div>
+      </div>
+
+      <div class="countdown-grid" id="countdown-grid">
+        <div class="countdown-card">
+          <span class="countdown-num" id="days-count">00</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-card">
+          <span class="countdown-num" id="hours-count">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-card">
+          <span class="countdown-num" id="minutes-count">00</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-card">
+          <span class="countdown-num" id="seconds-count">00</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         STAGE 5: PRE-WEDDING MEMORIES 3D COVERFLOW GALLERY
+         (A GLIMPSE OF US: Our memories before we create more memories)
+         ============================================== -->
+    <section class="memories-gallery-section" id="memories-section">
+      <div class="gallery-header-wrap">
+        <span class="gallery-subtitle">A GLIMPSE OF US</span>
+        <h2 class="gallery-title">Our memories before we create more memories</h2>
+        <div class="golden-divider"><span>❦</span></div>
+      </div>
+
+      <!-- 3D Coverflow Carousel Container -->
+      <div class="carousel-3d-wrapper" id="carousel-3d-wrapper">
+        <button class="carousel-arrow prev-arrow" id="carousel-prev" aria-label="Previous Photo">❮</button>
+
+        <div class="carousel-track" id="carousel-track">
+          <!-- Slide 1: Center lake photo from user's screenshot -->
+          <div class="carousel-slide" data-index="0">
+            <div class="slide-card-inner">
+              <img src="memory_center_exact.jpg" alt="Mayank &amp; Shreya Udaipur Lake" />
+              <div class="slide-card-caption">Udaipur Palace Lake</div>
+            </div>
+          </div>
+
+          <!-- Slide 2: Steps photo from user's screenshot -->
+          <div class="carousel-slide" data-index="1">
+            <div class="slide-card-inner">
+              <img src="memory_left_exact.jpg" alt="Heritage Steps Moments" />
+              <div class="slide-card-caption">Heritage Steps</div>
+            </div>
+          </div>
+
+          <!-- Slide 3: Forest photo from user's screenshot -->
+          <div class="carousel-slide" data-index="2">
+            <div class="slide-card-inner">
+              <img src="memory_right_exact.jpg" alt="Whispering Pines" />
+              <div class="slide-card-caption">Forest Romance</div>
+            </div>
+          </div>
+
+          <!-- Slide 4: Sunset Beach -->
+          <div class="carousel-slide" data-index="3">
+            <div class="slide-card-inner">
+              <img src="memory_1.jpg" alt="Golden Sunset by the Sea" />
+              <div class="slide-card-caption">Golden Hour</div>
+            </div>
+          </div>
+
+          <!-- Slide 5: Royal Courtyard -->
+          <div class="carousel-slide" data-index="4">
+            <div class="slide-card-inner">
+              <img src="memory_2.jpg" alt="Royal Courtyard" />
+              <div class="slide-card-caption">Royal Courtyard</div>
+            </div>
+          </div>
+
+          <!-- Slide 6: Eternal Promises -->
+          <div class="carousel-slide" data-index="5">
+            <div class="slide-card-inner">
+              <img src="memory_3.jpg" alt="Eternal Promises" />
+              <div class="slide-card-caption">Eternal Promises</div>
+            </div>
+          </div>
+
+          <!-- Slide 7: Joyful Laughs -->
+          <div class="carousel-slide" data-index="6">
+            <div class="slide-card-inner">
+              <img src="memory_4.jpg" alt="Joyful Moments" />
+              <div class="slide-card-caption">Joyful Laughs</div>
+            </div>
+          </div>
+
+          <!-- Slide 8: Sunset Silhouette -->
+          <div class="carousel-slide" data-index="7">
+            <div class="slide-card-inner">
+              <img src="memory_5.jpg" alt="Sunset Silhouette" />
+              <div class="slide-card-caption">Sunset Silhouette</div>
+            </div>
+          </div>
+
+          <!-- Slide 9: Regal Traditions -->
+          <div class="carousel-slide" data-index="8">
+            <div class="slide-card-inner">
+              <img src="memory_6.jpg" alt="Regal Traditions" />
+              <div class="slide-card-caption">Regal Traditions</div>
+            </div>
+          </div>
+
+          <!-- Slide 10: Under The Arch -->
+          <div class="carousel-slide" data-index="9">
+            <div class="slide-card-inner">
+              <img src="memory_7.jpg" alt="Archway of Love" />
+              <div class="slide-card-caption">Under The Arch</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-arrow next-arrow" id="carousel-next" aria-label="Next Photo">❯</button>
+      </div>
+
+      <!-- Carousel Pagination Dots -->
+      <div class="carousel-dots" id="carousel-dots"></div>
+
+      <!-- Bottom Hint: SWIPE TO EXPLORE (Matching the screenshot) -->
+      <p class="swipe-hint-text">
+        <span class="swipe-dash">—</span> SWIPE TO EXPLORE <span class="swipe-dash">—</span>
+      </p>
+    </section>
+
+    <!-- ==============================================
+         STAGE 6: WEDDING FUNCTIONS VIDEO CAROUSEL
+         (THE CELEBRATIONS: Our wedding functions)
+         (EXACT MATCH TO USER'S REFERENCE SCREENSHOT)
+         ============================================== -->
+    <section class="wedding-functions-section" id="events-section">
+      <div class="functions-header-wrap">
+        <span class="functions-subtitle">THE CELEBRATIONS</span>
+        <h2 class="functions-title">Our wedding functions</h2>
+        <div class="golden-divider"><span>❦</span></div>
+      </div>
+
+      <div class="functions-carousel-outer">
+        <button class="func-arrow func-prev-arrow" id="func-prev-btn" aria-label="Previous Function">❮</button>
+
+        <div class="functions-cards-track" id="functions-track">
+          <!-- Function 1: Mehendi -->
+          <div class="function-card" data-func="mehendi">
+            <div class="func-video-wrapper">
+              <video class="func-bg-video" playsinline loop muted autoplay preload="auto">
+                <source src="mahendi.mp4" type="video/mp4">
+              </video>
+              <div class="func-dark-overlay"></div>
+            </div>
+
+            <div class="func-card-content">
+              <h3 class="func-name">Mehendi</h3>
+              
+              <div class="func-datetime">
+                <p class="func-date">22 January 2027</p>
+                <p class="func-time">11:00 AM onwards</p>
+              </div>
+
+              <p class="func-tagline">Henna, laughter &amp; music</p>
+              <p class="func-place">Taj Palace, Mumbai</p>
+            </div>
+          </div>
+
+          <!-- Function 2: Sangeet -->
+          <div class="function-card" data-func="sangeet">
+            <div class="func-video-wrapper">
+              <video class="func-bg-video" playsinline loop muted autoplay preload="auto">
+                <source src="sangeet.mp4" type="video/mp4">
+              </video>
+              <div class="func-dark-overlay"></div>
+            </div>
+
+            <div class="func-card-content">
+              <h3 class="func-name">Sangeet</h3>
+              
+              <div class="func-datetime">
+                <p class="func-date">23 January 2027</p>
+                <p class="func-time">8:00 PM onwards</p>
+              </div>
+
+              <p class="func-tagline">A night of dance and celebration</p>
+              <p class="func-place">Taj Palace, Mumbai</p>
+            </div>
+          </div>
+
+          <!-- Function 3: Haldi -->
+          <div class="function-card" data-func="haldi">
+            <div class="func-video-wrapper">
+              <video class="func-bg-video" playsinline loop muted autoplay preload="auto">
+                <source src="haldi.mp4" type="video/mp4">
+              </video>
+              <div class="func-dark-overlay"></div>
+            </div>
+
+            <div class="func-card-content">
+              <h3 class="func-name">Haldi</h3>
+              
+              <div class="func-datetime">
+                <p class="func-date">24 January 2027</p>
+                <p class="func-time">10:00 AM onwards</p>
+              </div>
+
+              <p class="func-tagline">Turmeric &amp; sunshine</p>
+              <p class="func-place">Taj Palace, Mumbai</p>
+            </div>
+          </div>
+
+          <!-- Function 4: Wedding -->
+          <div class="function-card" data-func="wedding">
+            <div class="func-video-wrapper">
+              <video class="func-bg-video" playsinline loop muted autoplay preload="auto">
+                <source src="wedding.mp4" type="video/mp4">
+              </video>
+              <div class="func-dark-overlay"></div>
+            </div>
+
+            <div class="func-card-content">
+              <h3 class="func-name">The Wedding</h3>
+              
+              <div class="func-datetime">
+                <p class="func-date">25 January 2027</p>
+                <p class="func-time">5:00 PM onwards</p>
+              </div>
+
+              <p class="func-tagline">Two souls, one eternal bond</p>
+              <p class="func-place">Taj Palace, Mumbai</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="func-arrow func-next-arrow" id="func-next-btn" aria-label="Next Function">❯</button>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         STAGE 7: WEDDING DESTINATION (THE VENUE)
+         (EXACT MATCH TO USER'S REFERENCE SCREENSHOT: media_1795348583572_876d048b.jpg)
+         ============================================== -->
+    <section class="venue-section" id="venue-section">
+      <!-- Ambient Floating Petals -->
+      <div class="venue-petals-wrap" aria-hidden="true">
+        <span class="venue-petal" style="left: 12%; animation-duration: 9s; animation-delay: 0s;"></span>
+        <span class="venue-petal" style="left: 26%; animation-duration: 11s; animation-delay: 2.5s; width: 12px; height: 16px;"></span>
+        <span class="venue-petal" style="left: 42%; animation-duration: 8.5s; animation-delay: 4s;"></span>
+        <span class="venue-petal" style="left: 68%; animation-duration: 10s; animation-delay: 1.2s; width: 16px; height: 20px;"></span>
+        <span class="venue-petal" style="left: 82%; animation-duration: 12s; animation-delay: 3s;"></span>
+        <span class="venue-petal" style="left: 92%; animation-duration: 9.5s; animation-delay: 5s; width: 13px; height: 17px;"></span>
+      </div>
+
+      <div class="venue-inner-wrap">
+        <span class="venue-eyebrow">THE VENUE</span>
+        <h2 class="venue-script-title">
+          We are waiting for you at<br>
+          <span class="venue-palace-line">Taj Palace, Mumbai</span>
+        </h2>
+
+        <!-- Google Map Golden Frame Card -->
+        <a href="https://www.google.com/maps/dir/?api=1&destination=The+Taj+Mahal+Palace,+Mumbai" target="_blank" rel="noopener noreferrer" class="venue-map-card-link" title="Click to open directions in Google Maps">
+          <div class="venue-map-card">
+            <img src="taj_map_clean_2x.png" alt="Taj Palace, Mumbai Location Map" class="venue-map-img">
+            <div class="venue-map-hover-hint">
+              <span class="map-pill-badge">📍 Open in Google Maps</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Directions Button -->
+        <div class="venue-btn-wrapper">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=The+Taj+Mahal+Palace,+Mumbai" target="_blank" rel="noopener noreferrer" class="venue-directions-btn">
+            <svg class="plane-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+            </svg>
+            GET DIRECTIONS
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="wedding-footer">
+      <p class="footer-couple">Mayank &amp; Shreya</p>
+      <p class="footer-shloka">॥ मङ्गलम् भगवान विष्णुः मङ्गलम् गरुडध्वजः ॥</p>
+      <p class="footer-copy">With Heartfelt Gratitude &amp; Love • 2027</p>
+    </footer>
+
+    <!-- Background Wedding Music: Vela Milan Ni -->
+    <audio id="wedding-bg-audio" src="Vela Milan Ni.mp3" preload="auto" loop></audio>
+
+    <!-- ==============================================
+         FLOATING AUDIO BUTTON (BOTTOM RIGHT)
+         (EXACT MATCH TO THE CIRCULAR AUDIO BUTTON IN THE SCREENSHOT)
+         ============================================== -->
+    <aside class="audio-player-fixed" aria-label="Wedding Music Control">
+      <button id="music-toggle-btn" class="audio-fab-btn" title="Toggle Wedding Music" aria-label="Toggle Wedding Music">
+        <div class="audio-waves-ring"></div>
+        <svg class="music-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Shehnai / Music Note Icon -->
+          <path d="M9 18V5l12-2v13" />
+          <circle cx="6" cy="18" r="3" fill="currentColor" />
+          <circle cx="18" cy="16" r="3" fill="currentColor" />
+        </svg>
+      </button>
+      <div id="music-status-tooltip" class="music-tooltip">Music: Playing</div>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1799 @@
+/* ==========================================================================
+   MAYANK & SHREYA ROYAL WEDDING INVITATION
+   ========================================================================== */
+
+:root {
+  --bg-cream: #f8f1e7;
+  --bg-cream-light: #faf5ee;
+  --bg-card: #fdfaf6;
+  --color-maroon: #5e2d30;
+  --color-maroon-dark: #461f22;
+  --color-gold: #c7900f;
+  --color-gold-light: #e6b845;
+  --color-gold-glow: rgba(199, 144, 15, 0.45);
+  --color-text-dark: #3a2e2b;
+  --color-text-muted: #6e645e;
+  --color-heart-pink: rgba(235, 130, 145, 0.75);
+  --audio-btn-bg: #7a2e21;
+
+  --font-script: 'Great Vibes', 'Alex Brush', cursive;
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-display: 'Cinzel', serif;
+  --font-sans: 'Montserrat', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-cream);
+  color: var(--color-text-dark);
+}
+
+body {
+  font-family: var(--font-serif);
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+  background-color: var(--bg-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   STAGE 1: VIDEO INTRO (CLEAN: ONLY TAP TO BEGIN, NO BOX, NO BOTTOM BAR)
+   ========================================================================== */
+
+.video-stage {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+}
+
+.video-stage.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.video-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+}
+
+/* Center Tap Overlay (No Box, Just Clean Centered Button) */
+.tap-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  transition: opacity 0.6s ease, transform 0.6s ease, visibility 0.6s;
+}
+
+.tap-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   STAGE 1: "OPEN THE DOORS" ROYAL PLAQUE BUTTON
+   (EXACT MATCH TO USER'S UPLOADED BUTTON DESIGN)
+   ========================================================================== */
+
+.svg-defs-hidden {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.open-doors-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px; /* 5px down */
+  animation: doorsPulse 2.4s infinite ease-in-out;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  user-select: none;
+}
+
+.open-doors-btn:hover {
+  transform: translateY(5px) scale(1.05);
+  filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.75));
+}
+
+.doors-btn-container {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.5));
+}
+
+/* Wing Laurel Flourishes */
+.wing-flourish {
+  width: 58px;
+  height: 38px;
+  display: block;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.wing-flourish.wing-left {
+  margin-right: -6px;
+  z-index: 3;
+}
+
+.wing-flourish.wing-right {
+  margin-left: -6px;
+  z-index: 3;
+}
+
+/* Central Maroon Royal Plaque */
+.doors-plaque {
+  position: relative;
+  background: linear-gradient(180deg, #66181f 0%, #4a1015 48%, #2d080c 100%);
+  border: 2px solid #dfb13f;
+  border-radius: 32px;
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 235, 170, 0.5),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.6),
+    0 0 16px rgba(212, 175, 55, 0.35);
+  z-index: 2;
+}
+
+/* Inner Gold Pinstripe */
+.plaque-inner-pinstripe {
+  border: 1px solid rgba(255, 228, 140, 0.7);
+  border-radius: 26px;
+  padding: 8px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: radial-gradient(ellipse at 50% 30%, rgba(120, 28, 36, 0.35) 0%, transparent 80%);
+}
+
+/* "OPEN THE DOORS" Typography */
+.doors-label {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 3.5px;
+  background: linear-gradient(180deg, #fff3be 0%, #ecd068 50%, #b8861b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.9));
+  white-space: nowrap;
+}
+
+.doors-star {
+  color: #fff0aa;
+  font-size: 0.95rem;
+  filter: drop-shadow(0 0 4px #ffd700);
+  animation: starTwinkle 2s infinite ease-in-out;
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.7; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.15) rotate(10deg); filter: drop-shadow(0 0 8px #fff0aa); }
+}
+
+/* Bottom Center Blooming Lotus & Flourishes */
+.plaque-lotus-wrap {
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.flourish-line {
+  height: 1.5px;
+  width: 40px;
+  display: inline-block;
+}
+
+.flourish-line.left {
+  background: linear-gradient(90deg, transparent, #dfb13f);
+}
+
+.flourish-line.right {
+  background: linear-gradient(90deg, #dfb13f, transparent);
+}
+
+.lotus-svg {
+  width: 28px;
+  height: 16px;
+  margin: 0 4px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+}
+
+@keyframes doorsPulse {
+  0% {
+    transform: translateY(5px) scale(1);
+    filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.5));
+  }
+  50% {
+    transform: translateY(5px) scale(1.025);
+    filter: drop-shadow(0 8px 24px rgba(212, 175, 55, 0.65));
+  }
+  100% {
+    transform: translateY(5px) scale(1);
+    filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.5));
+  }
+}
+
+@keyframes shimmerGold {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes spinSlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Minimal Subtle Top-Right Skip Button */
+.top-skip-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 20;
+  background: rgba(15, 8, 12, 0.5);
+  border: 1px solid rgba(199, 144, 15, 0.5);
+  color: #f7e6ca;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.top-skip-btn:hover {
+  background: rgba(199, 144, 15, 0.9);
+  color: #120905;
+  box-shadow: 0 0 15px rgba(199, 144, 15, 0.5);
+}
+
+/* ==========================================================================
+   STAGE 2: CINEMATIC WHITE FLASH TRANSITION
+   ========================================================================== */
+
+.white-flash-veil {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5000;
+  background: #ffffff;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.white-flash-veil.flashing {
+  visibility: visible;
+  animation: whiteBloomAnimation 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes whiteBloomAnimation {
+  0% {
+    opacity: 0;
+    filter: brightness(1);
+  }
+  35% {
+    opacity: 1;
+    filter: brightness(2.2);
+  }
+  60% {
+    opacity: 0.95;
+    filter: brightness(1.8);
+  }
+  100% {
+    opacity: 0;
+    filter: brightness(1);
+    visibility: hidden;
+  }
+}
+
+/* ==========================================================================
+   STAGE 3: WEDDING INVITATION WEBSITE
+   ========================================================================== */
+
+.invitation-stage {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-cream);
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.invitation-stage.hidden {
+  display: none;
+  opacity: 0;
+}
+
+/* Floating Pink Heart Petals Canvas Layer */
+.petals-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 50;
+}
+
+/* ==========================================================================
+   HERO WEDDING CARD SECTION - 100% FULL SCREEN VIEW
+   (EXACT MATCH TO THE USER'S PROVIDED SCREENSHOT)
+   ========================================================================== */
+
+.wedding-card-section {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  background-color: var(--bg-cream);
+  overflow: hidden;
+}
+
+.wedding-card-container {
+  position: relative;
+  width: 100vw;
+  height: 100%;
+  min-height: 100vh;
+  max-width: none;
+  background-color: var(--bg-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  animation: cardFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cardFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Left & Right Floral Garlands Pinned Flush to the Very Top (Zero Top Gap) */
+.garland-border {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: clamp(140px, 18vw, 240px);
+  display: flex;
+  align-items: flex-start; /* Starts right at the top edge with zero gap */
+  pointer-events: none;
+  user-select: none;
+  z-index: 2;
+}
+
+.garland-border.garland-left {
+  left: 0;
+  justify-content: flex-start;
+}
+
+.garland-border.garland-right {
+  right: 0;
+  justify-content: flex-end;
+}
+
+.garland-img {
+  width: 100%;
+  height: auto;
+  max-height: 98vh;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  display: block;
+}
+
+.garland-border.garland-left .garland-img {
+  object-position: top left;
+}
+
+.garland-border.garland-right .garland-img {
+  object-position: top right;
+}
+
+/* Center Card Typography */
+.card-center-content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  max-width: 960px;
+  width: 100%;
+  padding: 10px 20px 40px;
+  margin: auto;
+}
+
+/* "WE ARE THRILLED TO ANNOUNCE THAT" */
+.announcement-top {
+  font-family: var(--font-display);
+  font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+  letter-spacing: clamp(4px, 0.6vw, 7px);
+  color: #645a54;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: clamp(16px, 3vh, 30px);
+}
+
+/* Names Block */
+.couple-name-block {
+  margin: 4px 0;
+}
+
+.groom-name, .bride-name {
+  font-family: var(--font-script);
+  font-size: clamp(4.5rem, 8vw, 7rem);
+  font-weight: 400;
+  color: var(--color-maroon);
+  line-height: 1.05;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(94, 45, 48, 0.08);
+}
+
+.parents-subtext {
+  font-family: var(--font-serif);
+  font-size: clamp(0.95rem, 1.3vw, 1.2rem);
+  font-style: italic;
+  color: #554a44;
+  margin-top: 2px;
+  letter-spacing: 0.5px;
+}
+
+/* Golden Ampersand */
+.ampersand-block {
+  margin: clamp(4px, 1.5vh, 12px) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ampersand {
+  font-family: var(--font-script);
+  font-size: clamp(3.2rem, 5vw, 4.6rem);
+  color: var(--color-gold);
+  line-height: 0.9;
+  filter: drop-shadow(0 1px 3px rgba(199, 144, 15, 0.3));
+}
+
+/* "Are tying the knot on 25th November 2026" */
+.knot-date-block {
+  margin-top: clamp(20px, 3.5vh, 38px);
+}
+
+.knot-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 1.6vw, 1.45rem);
+  color: #3b312c;
+  letter-spacing: 1px;
+}
+
+.highlight-date {
+  color: var(--color-gold);
+  font-weight: 600;
+  font-style: italic;
+  text-shadow: 0 1px 2px rgba(199, 144, 15, 0.25);
+}
+
+/* Floating Scroll Down Hint */
+.scroll-down-hint {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-decoration: none;
+  color: var(--color-gold);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.75;
+  transition: all 0.3s ease;
+  z-index: 10;
+  animation: gentleBounce 2.5s infinite;
+}
+
+.scroll-down-hint:hover {
+  opacity: 1;
+  color: var(--color-maroon);
+}
+
+.scroll-icon {
+  font-size: 1rem;
+}
+
+@keyframes gentleBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(5px); }
+}
+
+/* ==========================================================================
+   STAGE 4: SAVE THE DATE PHOTO & SCRATCH CARD SECTION
+   (BACKGROUND: marriege.png, INTERACTIVE GOLDEN SCRATCH CARD)
+   ========================================================================== */
+
+.save-the-date-section {
+  position: relative;
+  width: 100%;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('marriege.png');
+  background-size: cover;
+  background-position: center 25%;
+  background-repeat: no-repeat;
+  padding: 80px 20px;
+  overflow: hidden;
+}
+
+.scratch-section-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(15, 8, 12, 0.45) 0%, rgba(10, 5, 8, 0.65) 100%);
+  z-index: 1;
+}
+
+.scratch-content-wrapper {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+.scratch-sub-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 5px;
+  color: #fce28b;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.scratch-couple-title {
+  font-family: var(--font-script);
+  font-size: clamp(3.8rem, 6.5vw, 5.5rem);
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.1;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+  margin-bottom: 28px;
+  letter-spacing: 1px;
+}
+
+/* Golden Scratch Card Box */
+.scratch-card-container {
+  position: relative;
+  width: 360px;
+  max-width: 90vw;
+  height: 190px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.7), 
+    0 0 30px rgba(212, 175, 55, 0.4),
+    inset 0 0 15px rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 235, 170, 0.6);
+  user-select: none;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+/* Hidden Revealed Date Layer */
+.scratch-revealed-layer {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, #fffaf2 0%, #f7efe1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 18px;
+  border-radius: 18px;
+}
+
+.revealed-inner {
+  border: 1px dashed rgba(199, 144, 15, 0.5);
+  border-radius: 14px;
+  padding: 16px 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.revealed-motif {
+  font-size: 1.1rem;
+  color: var(--color-gold);
+  line-height: 1;
+}
+
+.revealed-date {
+  font-family: var(--font-script);
+  font-size: 2.9rem;
+  font-weight: 400;
+  color: var(--color-maroon);
+  line-height: 1.1;
+  margin: 2px 0;
+  text-shadow: 0 1px 2px rgba(94, 45, 48, 0.15);
+}
+
+.revealed-sub {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #6a5e57;
+  letter-spacing: 1px;
+}
+
+/* Scratch Top Canvas */
+.scratch-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  border-radius: 18px;
+  display: block;
+}
+
+/* Animated Scratch Hand Gesture Hint */
+.scratch-hand-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 54px;
+  height: 48px;
+  margin-top: -24px;
+  margin-left: -27px;
+  pointer-events: none;
+  z-index: 10;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  animation: scratchHandSwipe 1.8s infinite ease-in-out;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.28));
+}
+
+.scratch-hand-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+@keyframes scratchHandSwipe {
+  0% {
+    transform: translate(-50px, -6px) rotate(-10deg) scale(0.96);
+  }
+  25% {
+    transform: translate(0px, 4px) rotate(0deg) scale(1.02);
+  }
+  50% {
+    transform: translate(50px, -6px) rotate(12deg) scale(0.96);
+  }
+  75% {
+    transform: translate(0px, 4px) rotate(0deg) scale(1.02);
+  }
+  100% {
+    transform: translate(-50px, -6px) rotate(-10deg) scale(0.96);
+  }
+}
+
+.scratch-hand-indicator.hide-hand {
+  opacity: 0 !important;
+  visibility: hidden;
+  transform: scale(0.8);
+}
+
+.scratch-instruction-text {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 3.5px;
+  color: #ffe6a6;
+  text-transform: uppercase;
+  margin-top: 22px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
+  transition: color 0.3s ease;
+}
+
+.highlight-date {
+  color: var(--color-gold);
+  font-weight: 600;
+  font-style: italic;
+  text-shadow: 0 1px 2px rgba(199, 144, 15, 0.25);
+}
+
+/* ==========================================================================
+   COUNTDOWN TIMER SECTION
+   ========================================================================== */
+
+.countdown-section,
+.events-section {
+  max-width: 960px;
+  margin: 50px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.section-title-wrap {
+  margin-bottom: 32px;
+}
+
+.sub-flourish {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--color-gold);
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--color-maroon);
+  text-transform: uppercase;
+}
+
+.golden-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 0 0;
+  color: var(--color-gold);
+}
+
+.golden-divider::before,
+.golden-divider::after {
+  content: "";
+  height: 1px;
+  width: 70px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+.golden-divider span {
+  padding: 0 10px;
+  font-size: 1.2rem;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.countdown-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(199, 144, 15, 0.4);
+  border-radius: 12px;
+  padding: 20px 10px;
+  box-shadow: 0 10px 25px rgba(94, 45, 48, 0.05);
+  backdrop-filter: blur(5px);
+  transition: transform 0.3s ease;
+}
+
+.countdown-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-gold);
+}
+
+.countdown-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-maroon);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.countdown-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   STAGE 5: PRE-WEDDING MEMORIES 3D COVERFLOW GALLERY
+   (A GLIMPSE OF US: Our memories before we create more memories)
+   ========================================================================== */
+
+.memories-gallery-section {
+  position: relative;
+  width: 100%;
+  padding: 80px 20px 70px;
+  text-align: center;
+  background-color: var(--bg-cream);
+  overflow: hidden;
+}
+
+.gallery-header-wrap {
+  margin-bottom: 25px;
+}
+
+.gallery-subtitle {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 5px;
+  color: #726259;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.gallery-title {
+  font-family: var(--font-script);
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  font-weight: 400;
+  color: var(--color-maroon);
+  line-height: 1.2;
+  margin-bottom: 8px;
+  text-shadow: 0 1px 3px rgba(94, 45, 48, 0.08);
+}
+
+/* 3D Coverflow Container */
+.carousel-3d-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  height: 440px;
+  margin: 30px auto 14px;
+  perspective: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+/* Slide Cards */
+.carousel-slide {
+  position: absolute;
+  width: 260px;
+  height: 370px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.16);
+  border: 4px solid #ffffff;
+  cursor: pointer;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.55s ease, filter 0.55s ease, box-shadow 0.55s ease;
+  will-change: transform, opacity;
+}
+
+.slide-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-card-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.carousel-slide:hover .slide-card-inner img {
+  transform: scale(1.04);
+}
+
+.slide-card-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 14px 10px;
+  background: linear-gradient(180deg, transparent 0%, rgba(15, 8, 10, 0.75) 100%);
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-slide.active .slide-card-caption {
+  opacity: 1;
+}
+
+/* 3D Positioning Classes */
+.carousel-slide.active {
+  transform: translateX(0) translateZ(90px) rotateY(0deg) scale(1.1);
+  z-index: 10;
+  opacity: 1;
+  box-shadow: 0 25px 50px rgba(94, 45, 48, 0.28), 0 0 25px rgba(212, 175, 55, 0.35);
+  border-color: #ffffff;
+}
+
+.carousel-slide.prev-1 {
+  transform: translateX(-220px) translateZ(0) rotateY(18deg) scale(0.92);
+  z-index: 8;
+  opacity: 0.92;
+  filter: brightness(0.96);
+}
+
+.carousel-slide.next-1 {
+  transform: translateX(220px) translateZ(0) rotateY(-18deg) scale(0.92);
+  z-index: 8;
+  opacity: 0.92;
+  filter: brightness(0.96);
+}
+
+.carousel-slide.prev-2 {
+  transform: translateX(-400px) translateZ(-80px) rotateY(30deg) scale(0.8);
+  z-index: 6;
+  opacity: 0.65;
+  filter: brightness(0.88);
+}
+
+.carousel-slide.next-2 {
+  transform: translateX(400px) translateZ(-80px) rotateY(-30deg) scale(0.8);
+  z-index: 6;
+  opacity: 0.65;
+  filter: brightness(0.88);
+}
+
+.carousel-slide.hidden-slide {
+  transform: translateX(0) scale(0.6);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid var(--color-gold);
+  color: var(--color-maroon);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  z-index: 20;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.carousel-arrow:hover {
+  background: var(--color-maroon);
+  color: #fff;
+  border-color: var(--color-maroon);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 25px rgba(94, 45, 48, 0.3);
+}
+
+.prev-arrow { left: 16px; }
+.next-arrow { right: 16px; }
+
+/* Pagination Dots */
+.carousel-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(199, 144, 15, 0.35);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+  width: 24px;
+  border-radius: 10px;
+  background: var(--color-gold);
+  box-shadow: 0 0 8px rgba(199, 144, 15, 0.5);
+}
+
+/* SWIPE TO EXPLORE hint (exact match to screenshot) */
+.swipe-hint-text {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 4.5px;
+  color: #726259;
+  text-transform: uppercase;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.swipe-dash {
+  color: var(--color-gold);
+  font-weight: 300;
+}
+
+@media (max-width: 900px) {
+  .carousel-3d-wrapper {
+    height: 390px;
+  }
+  .carousel-slide {
+    width: 220px;
+    height: 320px;
+  }
+  .carousel-slide.prev-1 { transform: translateX(-160px) translateZ(0) rotateY(18deg) scale(0.9); }
+  .carousel-slide.next-1 { transform: translateX(160px) translateZ(0) rotateY(-18deg) scale(0.9); }
+  .carousel-slide.prev-2 { transform: translateX(-280px) translateZ(-60px) rotateY(28deg) scale(0.75); }
+  .carousel-slide.next-2 { transform: translateX(280px) translateZ(-60px) rotateY(-28deg) scale(0.75); }
+}
+
+@media (max-width: 600px) {
+  .carousel-3d-wrapper {
+    height: 360px;
+  }
+  .carousel-slide {
+    width: 200px;
+    height: 290px;
+  }
+  .carousel-slide.prev-1 { transform: translateX(-110px) scale(0.85); opacity: 0.8; }
+  .carousel-slide.next-1 { transform: translateX(110px) scale(0.85); opacity: 0.8; }
+  .carousel-slide.prev-2 { transform: translateX(-190px) scale(0.7); opacity: 0.35; }
+  .carousel-slide.next-2 { transform: translateX(190px) scale(0.7); opacity: 0.35; }
+}
+
+/* ==========================================================================
+   STAGE 6: WEDDING FUNCTIONS VIDEO CAROUSEL
+   (THE CELEBRATIONS: Our wedding functions)
+   (EXACT MATCH TO USER'S REFERENCE SCREENSHOT)
+   ========================================================================== */
+
+.wedding-functions-section {
+  position: relative;
+  width: 100%;
+  padding: 85px 20px 75px;
+  text-align: center;
+  background-color: var(--bg-cream);
+  overflow: hidden;
+}
+
+.functions-header-wrap {
+  margin-bottom: 25px;
+}
+
+.functions-subtitle {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 5px;
+  color: #726259;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.functions-title {
+  font-family: var(--font-script);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  color: var(--color-maroon);
+  line-height: 1.2;
+  margin-bottom: 8px;
+  text-shadow: 0 1px 3px rgba(94, 45, 48, 0.08);
+}
+
+/* Functions Carousel Container */
+.functions-carousel-outer {
+  position: relative;
+  max-width: 1400px;
+  width: 100%;
+  margin: 30px auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.functions-cards-track {
+  display: flex;
+  gap: 26px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 20px 10px 30px;
+  width: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  justify-content: center;
+}
+
+.functions-cards-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Each Function Card */
+.function-card {
+  flex: 0 0 310px;
+  height: 490px;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  scroll-snap-align: center;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  background: #14080b;
+  cursor: pointer;
+  user-select: none;
+}
+
+.function-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 24px 50px rgba(94, 45, 48, 0.28), 0 0 25px rgba(212, 175, 55, 0.35);
+  border-color: rgba(212, 175, 55, 0.75);
+}
+
+/* Video Background */
+.func-video-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.func-bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease;
+}
+
+.function-card:hover .func-bg-video {
+  transform: scale(1.06);
+}
+
+.func-dark-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(16, 8, 11, 0.42) 0%, rgba(12, 5, 8, 0.38) 40%, rgba(10, 4, 7, 0.76) 100%);
+  transition: background 0.4s ease;
+}
+
+.function-card:hover .func-dark-overlay {
+  background: linear-gradient(180deg, rgba(16, 8, 11, 0.35) 0%, rgba(12, 5, 8, 0.3) 40%, rgba(10, 4, 7, 0.68) 100%);
+}
+
+/* Typography on Card (Matching screenshot) */
+.func-card-content {
+  position: relative;
+  z-index: 5;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 48px 20px 34px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.func-name {
+  font-family: var(--font-script);
+  font-size: 3.8rem;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.85));
+}
+
+.func-datetime {
+  margin-bottom: 24px;
+}
+
+.func-date {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.func-time {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #fce28b;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.func-tagline {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-style: italic;
+  color: #f2e9e4;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+}
+
+.func-place {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: auto;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* Sound Toggle Button on Card */
+.func-audio-btn {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(20, 10, 14, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.func-audio-btn:hover {
+  transform: scale(1.15);
+  background: var(--color-maroon);
+  border-color: var(--color-gold);
+}
+
+.audio-icon {
+  font-size: 0.95rem;
+}
+
+/* Arrows */
+.func-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid var(--color-gold);
+  color: var(--color-maroon);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  z-index: 20;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.func-arrow:hover {
+  background: var(--color-maroon);
+  color: #fff;
+  border-color: var(--color-maroon);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 25px rgba(94, 45, 48, 0.3);
+}
+
+.func-prev-arrow { left: 4px; }
+.func-next-arrow { right: 4px; }
+
+@media (max-width: 1360px) {
+  .functions-cards-track {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .function-card {
+    flex: 0 0 270px;
+    height: 440px;
+  }
+  .func-name {
+    font-size: 3.2rem;
+  }
+}
+
+/* ==========================================================================
+   STAGE 7: WEDDING DESTINATION (THE VENUE)
+   (EXACT MATCH TO USER'S REFERENCE SCREENSHOT: media_1795348583572_876d048b.jpg)
+   ========================================================================== */
+
+.venue-section {
+  position: relative;
+  width: 100%;
+  padding: 95px 20px 90px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(253, 246, 240, 0.82) 0%, rgba(251, 243, 236, 0.68) 50%, rgba(253, 246, 240, 0.88) 100%),
+              url('marine_drive_skyline.jpg') center center / cover no-repeat;
+  overflow: hidden;
+  box-shadow: inset 0 20px 40px rgba(0, 0, 0, 0.04), inset 0 -20px 40px rgba(0, 0, 0, 0.04);
+}
+
+.venue-inner-wrap {
+  position: relative;
+  z-index: 5;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.venue-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  letter-spacing: 5px;
+  color: #7d6b61;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.venue-script-title {
+  font-family: var(--font-script);
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  font-weight: 400;
+  color: var(--color-maroon);
+  line-height: 1.2;
+  margin-bottom: 28px;
+  text-shadow: 0 1px 3px rgba(94, 45, 48, 0.08);
+}
+
+.venue-palace-line {
+  display: block;
+  font-size: 1.04em;
+}
+
+/* Map Card Frame (Golden Rounded Card) */
+.venue-map-card-link {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 26px;
+  cursor: pointer;
+  transition: transform 0.35s ease;
+}
+
+.venue-map-card {
+  position: relative;
+  width: clamp(290px, 88vw, 490px);
+  aspect-ratio: 424 / 219;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid #dfbb6c;
+  box-shadow: 0 16px 36px rgba(94, 45, 48, 0.16), 0 0 18px rgba(212, 175, 55, 0.3);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  background: #a9e0f2;
+}
+
+.venue-map-card-link:hover .venue-map-card {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 24px 48px rgba(94, 45, 48, 0.25), 0 0 28px rgba(212, 175, 55, 0.55);
+  border-color: #ffd700;
+}
+
+.venue-map-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.venue-map-card-link:hover .venue-map-img {
+  transform: scale(1.04);
+}
+
+.venue-map-hover-hint {
+  position: absolute;
+  inset: 0;
+  background: rgba(94, 45, 48, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+.venue-map-card-link:hover .venue-map-hover-hint {
+  opacity: 1;
+}
+
+.map-pill-badge {
+  background: #ffffff;
+  color: var(--color-maroon);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 8px 18px;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--color-gold);
+}
+
+/* Direction Button */
+.venue-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.venue-directions-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #7a2b32 0%, #5e2d30 100%);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 13px 36px;
+  border-radius: 50px;
+  box-shadow: 0 8px 24px rgba(94, 45, 48, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.venue-directions-btn:hover {
+  background: linear-gradient(135deg, #8e343c 0%, #6e272b 100%);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(94, 45, 48, 0.5);
+  color: #fff9e6;
+}
+
+.plane-icon {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+  transform: rotate(-15deg);
+  transition: transform 0.3s ease;
+}
+
+.venue-directions-btn:hover .plane-icon {
+  transform: rotate(0deg) scale(1.15);
+}
+
+/* Floating Petals for Venue Section */
+.venue-petals-wrap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.venue-petal {
+  position: absolute;
+  width: 14px;
+  height: 18px;
+  background: radial-gradient(circle at 35% 35%, #fca5a5 0%, #e11d48 70%, #9f1239 100%);
+  border-radius: 50% 50% 50% 0;
+  opacity: 0.72;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.12));
+  animation: venuePetalFall 10s infinite linear;
+}
+
+@keyframes venuePetalFall {
+  0% {
+    transform: translateY(-20px) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.75;
+  }
+  85% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(600px) rotate(360deg) scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* Footer */
+.wedding-footer {
+  text-align: center;
+  padding: 60px 20px 40px;
+  border-top: 1px solid rgba(199, 144, 15, 0.25);
+  margin-top: 60px;
+}
+
+.footer-couple {
+  font-family: var(--font-script);
+  font-size: 3rem;
+  color: var(--color-maroon);
+  margin-bottom: 6px;
+}
+
+.footer-shloka {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  color: var(--color-gold);
+  margin-bottom: 12px;
+}
+
+.footer-copy {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   FLOATING AUDIO BUTTON (BOTTOM RIGHT)
+   (MATCHES THE CIRCULAR AUDIO BUTTON IN USER'S SCREENSHOT)
+   ========================================================================== */
+
+.audio-player-fixed {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+}
+
+.audio-fab-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--audio-btn-bg);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(122, 46, 33, 0.45);
+  position: relative;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.audio-fab-btn:hover {
+  transform: scale(1.1);
+  background-color: #8c3426;
+  box-shadow: 0 8px 25px rgba(122, 46, 33, 0.6);
+}
+
+.audio-fab-btn.playing .audio-waves-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid var(--color-gold);
+  animation: rippleRing 2s infinite ease-out;
+}
+
+@keyframes rippleRing {
+  0% { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.music-icon {
+  width: 22px;
+  height: 22px;
+  stroke: #ffffff;
+  transition: transform 0.3s;
+}
+
+.audio-fab-btn.playing .music-icon {
+  animation: swayNote 1.5s infinite ease-in-out;
+}
+
+@keyframes swayNote {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.music-tooltip {
+  position: absolute;
+  right: 65px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(26, 12, 15, 0.85);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border: 1px solid var(--color-gold);
+}
+
+.audio-player-fixed:hover .music-tooltip {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (MOBILE & TABLET ADAPTATION)
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .garland-border {
+    width: clamp(100px, 14vw, 150px);
+  }
+
+  .groom-name, .bride-name {
+    font-size: 4.5rem;
+  }
+
+  .ampersand {
+    font-size: 3rem;
+  }
+
+  .announcement-top {
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+  }
+
+}
+
+@media (max-width: 600px) {
+  .wedding-card-container {
+    padding: 10px 10px 30px;
+  }
+
+  .garland-border {
+    width: 65px;
+    height: auto;
+    top: 0;
+    align-items: flex-start;
+    opacity: 0.85;
+  }
+
+  .garland-border.garland-left {
+    left: 0;
+  }
+
+  .garland-border.garland-right {
+    right: 0;
+  }
+
+  .groom-name, .bride-name {
+    font-size: 3.8rem;
+  }
+
+  .ampersand {
+    font-size: 2.6rem;
+  }
+
+  .countdown-grid {
+    gap: 8px;
+  }
+
+  .countdown-num {
+    font-size: 1.6rem;
+  }
+
+  .countdown-card {
+    padding: 14px 6px;
+  }
+
+  .doors-btn-container {
+    transform: scale(0.85);
+  }
+}
